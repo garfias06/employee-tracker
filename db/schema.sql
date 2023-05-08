@@ -23,15 +23,14 @@ CREATE TABLE employee (
 employee_id INT,
 first_name VARCHAR(30),
 last_name VARCHAR(30),
-role_id INT,
 manager_id INT,
+role_id INT,
 PRIMARY KEY (employee_id),
 FOREIGN KEY (role_id)
 REFERENCES com_role(com_role_id)
-
--- FOREIGN KEY (manager_id) 
--- REFERENCES employee(employee_id)
 );
 
-ALTER TABLE employee ADD CONSTRAINT fk_employee FOREIGN KEY (manager_id) 
+ALTER TABLE employee 
+ADD CONSTRAINT fk_employee 
+FOREIGN KEY (manager_id) 
 REFERENCES employee(employee_id);
