@@ -1,29 +1,33 @@
 -- SHOW ALL EMPLOYEES
 USE employee_management_db;
-SELECT employee.employee_id,
+SELECT employee.id,
 employee.first_name,
 employee.last_name,
 employee.manager_id,
-com_role.title,
-com_role.salary,
-department.department_name
+role.title,
+role.salary,
+department.name
 FROM employee
-LEFT JOIN com_role 
-ON com_role.com_role_id=employee.role_id
+LEFT JOIN role 
+ON role.id=employee.role_id
 LEFT JOIN department 
-ON department.department_id=com_role.department_id;
+ON department.id=role.department_id;
 
 -- SHOW ALL ROLES IN THE COMPANY
-USE employee_management_db;
-SELECT com_role.com_role_id,
-com_role.title,
-com_role.salary,
-department.department_name
-FROM com_role 
+SELECT role.id, 
+role.title, 
+role.salary, 
+department.name 
+FROM role 
 LEFT JOIN department 
-ON department.department_id=com_role.department_id;
+ON role.department_id = department.id;
 
--- ADD NEW ROLE
--- USE employee_management_db;
--- INSERT INTO com_role(title, salary, department_id)
--- VALUES(?,?,?)
+
+
+SELECT role.id, 
+role.title, 
+role.salary, 
+department.name 
+FROM role 
+LEFT JOIN department 
+ON role.department_id = department.id;
