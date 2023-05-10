@@ -233,7 +233,7 @@ const updateRole = () => {
 
     ])
       .then((answers) => {
-        let addR = `UPDATE employee SET role_id=${answers.roles_list} WHERE ${answers.employee_list};`;
+        let addR = `UPDATE employee SET role_id=${answers.roles_list} WHERE id=${answers.employee_list};`;
         db.query(addR, (err, res) => {
           if (err) throw err
           console.log('added')

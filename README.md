@@ -1,28 +1,26 @@
 # Employee-Tracker
-
-credits: https://randomwordgenerator.com/name.php
-https://www.kaggle.com/datasets/harsh45/random-salary-data-of-employes-age-wise?select=Salary_Data.csv
-https://bageshkumarbagi-msbi.blogspot.com/2020/04/recursive-or-self-referencing-foreign.html
-https://stackoverflow.com/questions/5442693/using-self-referencing-in-sql-server
-https://pencilprogrammer.com/self-referencing-foreign-key-in-mysql/
-
-
 ## Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+Command-Line Application built to help a business owner to view and manage the departments, roles and employees who work for a welding business, this way it can be planned and organized.
+
+- npm Inquirer package helped prompting questions and list of options so the user is able to manage tables where employees information is stored.
+- npm Mysql2 package helped setting a connection between Node.js and MySql to create and and store information to tables in databases and keep track of that information.
+- npm Console.Table package helped showing created tables in the command-line.
 ## Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+- mysql2 npm: command --- npm i mysql2
+- inquirer npm: command --- npm i inquirer@8.2.4
+- command to install console.table: npm i console.table
+- command to run CLI application: node index.js
 ## Usage
-Provide instructions and examples for use. Include screenshots as needed.
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-![alt text](assets/images/screenshot.png)
+Walkthrough Video Link:https://drive.google.com/file/d/1G04jOkUw9rPNo6oO8InYLBP7WxxMWn0b/view
+
 ## Credits
-List your collaborators, if any, with links to their GitHub profiles.
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-If you followed tutorials, include links to those here as well.
+https://randomwordgenerator.com/name.php
+https://pencilprogrammer.com/self-referencing-foreign-key-in-mysql/
+https://www.npmjs.com/package/inquirer/v/8.2.4#documentation
+https://www.npmjs.com/package/mysql2
+https://www.npmjs.com/package/console.table?activeTab=readme
+Tutor: Jose Lopez
+
 ## License
 MIT License
 
