@@ -22,3 +22,8 @@ department.department_name
 FROM com_role 
 LEFT JOIN department 
 ON department.department_id=com_role.department_id;
+
+-- ADD NEW ROLE
+-- USE employee_management_db;
+-- INSERT INTO com_role(title, salary, department_id)
+-- VALUES(?,?,?)

@@ -10,6 +10,10 @@
 //   console.log(`Connected to --employee_management_db-- database.`)
 // ).promise();
 
-
+// Questions to add new employee:
+// first name
+// last name
+// role: select from a list of choices
+// manager
 
 // module.exports={};

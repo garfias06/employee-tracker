@@ -10,6 +10,9 @@
 //   console.log(`Connected to --employee_management_db-- database.`)
 // ).promise();
 
-
+// questions to update role
+// select employee from a list of options
+// select role from a list of options
+// 
 
 // module.exports={};

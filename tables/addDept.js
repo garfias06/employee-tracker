@@ -12,20 +12,20 @@ const db = mysql.createConnection(
   console.log(`Connected to --employee_management_db-- database.`)
 ).promise();
 
-const addDept=async()=>{
-    await inquirer.prompt([   
+const addDept= ()=>{
+    inquirer.prompt([   
          {
         type: 'input',
         message: 'New Department name:',
         name: 'newDepartment',
       }
     ])
-    .then(async (answer)=>{
-        let department=`INSERT INTO department(department_name) VALUES(${answer.newDepartment});`;
+    .then( async (answer)=>{
+        let department=`USE employee_management_db; INSERT INTO department(department_name) VALUES("${answer.newDepartment}");`;
         await db.query(department);
-        console.log('Department added');
+        console.log(`${answer.newDepartment} added`);
     })
-};
+   };
 
 
 module.exports={addDept};
