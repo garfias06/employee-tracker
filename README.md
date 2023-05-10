@@ -14,12 +14,12 @@ Command-Line Application built to help a business owner to view and manage the d
 Walkthrough Video Link:https://drive.google.com/file/d/1G04jOkUw9rPNo6oO8InYLBP7WxxMWn0b/view
 
 ## Credits
-https://randomwordgenerator.com/name.php
-https://pencilprogrammer.com/self-referencing-foreign-key-in-mysql/
-https://www.npmjs.com/package/inquirer/v/8.2.4#documentation
-https://www.npmjs.com/package/mysql2
-https://www.npmjs.com/package/console.table?activeTab=readme
-Tutor: Jose Lopez
+- https://randomwordgenerator.com/name.php
+- https://pencilprogrammer.com/self-referencing-foreign-key-in-mysql/
+- https://www.npmjs.com/package/inquirer/v/8.2.4#documentation
+- https://www.npmjs.com/package/mysql2
+- https://www.npmjs.com/package/console.table?activeTab=readme
+- Tutor: Jose Lopez
 
 ## License
 MIT License
