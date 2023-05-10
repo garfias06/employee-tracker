@@ -55,8 +55,7 @@ const promptList = () => {
           updateRole();
           break;
         default:
-          process.exit()
-
+          process.exit();
       }
     })
 };
@@ -78,7 +77,6 @@ const showRoles = () => {
     console.table(res)
     promptList()
   });
-
 };
 
 const showDepartment = () => {
@@ -87,7 +85,6 @@ const showDepartment = () => {
     console.table(res)
     promptList()
   });
-
 };
 
 //!!!! ADD DEPARTMENT
@@ -160,12 +157,12 @@ const addEmployee = () => {
 
     let manager = 'SELECT employee.id, employee.first_name, employee.last_name FROM employee WHERE role_id IN (1,2,3);';
 
-    const managerChoices = db.query(manager, (err, res) => {
-      res.map((item) => ({
+    db.query(manager, (err, res) => {
+      const managerChoices = res.map((item) => ({
         name: item.first_name,
         value: item.id
       }));
-    })
+    
 
     inquirer.prompt([
       {
@@ -199,6 +196,7 @@ const addEmployee = () => {
           promptList()
         })
       })
+    })
   });
 }
 
@@ -206,19 +204,19 @@ const addEmployee = () => {
 const updateRole = () => {
   let employee = 'SELECT * FROM employee;';
 
-  db.query(employee, (err, res) => {
+  db.query(employee,  (err, res) => {
     const employeeChoices = res.map((item) => ({
       name: item.first_name,
       value: item.id
     }))
 
-    // let roles = 'SELECT * FROM role;';
-    // const roleChoices = db.query(roles, (err, res) => {
-    //   res.map((item) => ({
-    //     name: item.title,
-    //     value: item.id
-    //   }));
-    // })
+    let roles = 'SELECT * FROM role;';
+    db.query(roles, (err, res)  => {
+      const roleChoices = res.map((item) => ({
+        name: item.title,
+        value: item.id
+      }));
+    
 
     inquirer.prompt([
       {
@@ -236,31 +234,40 @@ const updateRole = () => {
 
     ])
       .then((answers) => {
-        let addR = ``;
+        let addR = `UPDATE employee SET role_id=${answers.roles_list} WHERE ${answers.employee_list};`;
         db.query(addR, (err, res) => {
           if (err) throw err
           console.log('added')
           promptList()
         })
       })
+    })
   });
 };
+// let manager = 'SELECT employee.id, employee.first_name, employee.last_name FROM employee WHERE role_id IN (1,2,3);';
 
-let roles = 'SELECT * FROM role;';
-db.query(roles, (err, res) => {
-  const roleChoices = res.map((item) => ({
-    name: item.title,
-    value: item.id
-  }));
-  console.log(roleChoices);
-})
+// db.query(manager, (err, res) => {
+//   const managerChoices = res.map((item) => ({
+//     name: item.first_name,
+//     value: item.id
+//   }));
+//   console.log(managerChoices);
+// })
 
-let manager = 'SELECT employee.id, employee.first_name, employee.last_name FROM employee WHERE role_id IN (1,2,3);';
+// let roles = 'SELECT * FROM role;';
+// db.query(roles, (err, res) => {
+//   const roleChoices = res.map((item) => ({
+//     name: item.title,
+//     value: item.id
+//   }));
+//   console.log(roleChoices);
+// })
 
-db.query(manager, (err, res) => {
-  const managerChoices = res.map((item) => ({
-    name: item.first_name,
-    value: item.id
-  }));
-  console.log(managerChoices);
-})
+    // let roles = 'SELECT * FROM role;';
+    // const roleChoices = await db.query(roles, (err, res)  => {
+    //   res.map((item) => ({
+    //     name: item.title,
+    //     value: item.id
+    //   }));
+    // })
+    //   console.log(roleChoices);
