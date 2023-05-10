@@ -158,12 +158,11 @@ const addEmployee = () => {
     let manager = 'SELECT employee.id, employee.first_name, employee.last_name FROM employee WHERE role_id IN (1,2,3);';
 
     db.query(manager, (err, res) => {
-      const managerChoices = res.map((item) => ({
-        name: item.first_name,
-        value: item.id
+      const managerChoices = res.map((man) => ({
+        name: man.first_name,
+        value: man.id
       }));
     
-
     inquirer.prompt([
       {
         type: 'input',
@@ -189,7 +188,7 @@ const addEmployee = () => {
       },
     ])
       .then((answers) => {
-        let addR = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${answers.firstName}","${answers.lastName}", "${answers.lastName}",${answers.roles},${answers.manager});`;
+        let addR = `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ("${answers.firstName}","${answers.lastName}",${answers.roles},${answers.manager});`;
         db.query(addR, (err, res) => {
           if (err) throw err
           console.log('added')
@@ -244,30 +243,3 @@ const updateRole = () => {
     })
   });
 };
-// let manager = 'SELECT employee.id, employee.first_name, employee.last_name FROM employee WHERE role_id IN (1,2,3);';
-
-// db.query(manager, (err, res) => {
-//   const managerChoices = res.map((item) => ({
-//     name: item.first_name,
-//     value: item.id
-//   }));
-//   console.log(managerChoices);
-// })
-
-// let roles = 'SELECT * FROM role;';
-// db.query(roles, (err, res) => {
-//   const roleChoices = res.map((item) => ({
-//     name: item.title,
-//     value: item.id
-//   }));
-//   console.log(roleChoices);
-// })
-
-    // let roles = 'SELECT * FROM role;';
-    // const roleChoices = await db.query(roles, (err, res)  => {
-    //   res.map((item) => ({
-    //     name: item.title,
-    //     value: item.id
-    //   }));
-    // })
-    //   console.log(roleChoices);
